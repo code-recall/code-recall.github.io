@@ -1,3 +1,4 @@
+## React Aria Might be Behind the Curve
 
 ```javascript
 import {Button, Dialog, DialogTrigger, Heading, Input, Label, Modal, TextField} from 'react-aria-components';
@@ -28,6 +29,8 @@ import {Button, Dialog, DialogTrigger, Heading, Input, Label, Modal, TextField} 
 ```
 
 The example above comes from React Aria's [Dialog](https://react-spectrum.adobe.com/react-aria/Dialog.html) component. What stands out is that the `<Dialog>` component is rendered in a modal. Why do we need to nest the `<Dialog>` in a `<Modal>`? 
+
+<img width="790" alt="Screenshot 2024-10-09 at 8 27 15 PM" src="https://github.com/user-attachments/assets/6ad058ac-49ff-435c-8d31-4fd791370153">
 
 React Aria does this because it doesn't make use of the `<dialog>` element native to browsers. Most likely because this implementation precedes full browser support for the `<dialog>` element. And because it doesn't make use of the native element, it needs to implement itself a bunch of features that otherwise come for free with the native element. The `<dialog>` itself:
 

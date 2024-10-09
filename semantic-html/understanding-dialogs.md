@@ -1,5 +1,7 @@
 ## The Difference Between Modal and Non-Modal Dialogs
 
+I wrote this after reading Kilian's post about how to better leverage HTML elements so you don't need JavaScript: https://www.htmhell.dev/adventcalendar/2023/2/.
+
 ### Modal Dialogs
 
 The example above is a *modal dialog*. A modal dialog:

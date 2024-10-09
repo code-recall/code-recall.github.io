@@ -1,8 +1,25 @@
-# dev-notes
+# Dev Notes
 
-## Articles This Week
+To mark a checkbox as completed, simply replace [ ] with [x].
 
-1. https://www.anthonyhobday.com/sideprojects/saferules/: UI/UX design rules.
-2. https://addyosmani.com/blog/effective-teams/?ck_subscriber_id=1646293088: How to create effective teams.
-3. https://www.youtube.com/watch?v=5uhIiI9Ld5M: Be the browsers mentor, not its micro-manager.
-4. https://www.htmhell.dev/adventcalendar/2023/1/: The UX of HTML. A case for semantic HTML.
+## Articles and Videos of the week
+
+Every week, every other week or just whenever suits.
+
+### Week of October 10, 2024
+
+| Article                                        | Link                                                                                  | Jack | Adrian |
+|------------------------------------------------|---------------------------------------------------------------------------------------|------|--------|
+| UI/UX Design Rules                             | [Read Here](https://www.anthonyhobday.com/sideprojects/saferules/)                    | [ ]  | [ ]    |
+| How to Create Effective Teams                  | [Read Here](https://addyosmani.com/blog/effective-teams/?ck_subscriber_id=1646293088) | [ ]  | [ ]    |
+| Be the Browser's Mentor, Not Its Micro-Manager | [Watch Here](https://www.youtube.com/watch?v=5uhIiI9Ld5M)                             | [ ]  | [x]    |
+| The UX of HTML: A Case for Semantic HTML       | [Read Here](https://www.htmhell.dev/adventcalendar/2023/1/)                           | [ ]  | [x]    |
+
+
+## Books
+
+| Title                                                                                                                                   | Description                                                                                                                               | Jack | Adrian |
+|-----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|------|--------|
+| [System Design Interview – An insider's guide](https://www.goodreads.com/book/show/54109255-system-design-interview-an-insider-s-guide) | A comprehensive guide to system design interviews, offering insights and strategies to help prepare for technical interviews.             | [ ]  | [ ]    |
+| [Designing Data-Intensive Applications](https://www.goodreads.com/book/show/23463279-designing-data-intensive-applications)             | An in-depth look at the principles and practices behind building scalable, reliable, and maintainable data-intensive applications.        | [ ]  | [ ]    |
+| [Modern Software Engineering](https://www.goodreads.com/book/show/59072155-modern-software-engineering)                                 | Dave Farley's guide to software engineering, emphasizing practical techniques for developing robust, maintainable, and adaptive software. | [ ]  | [ ]    |

@@ -2,7 +2,14 @@
 
 To mark a checkbox as completed, simply replace [ ] with [x].
 
-## Articles and Videos of the week
+## Table of Contents
+- [Articles and Videos of the Week](#articles-and-videos-of-the-week)
+  - [Week of October 10, 2024](#week-of-october-10-2024)
+  - [Week of October 14, 2024](#week-of-october-14-2024)
+- [Books](#books)
+- [Tools](#tools)
+
+## Articles and Videos of the Week
 
 Every week, every other week or just whenever suits.
 
@@ -32,6 +39,5 @@ Every week, every other week or just whenever suits.
 | [Designing Data-Intensive Applications](https://www.goodreads.com/book/show/23463279-designing-data-intensive-applications)             | An in-depth look at the principles and practices behind building scalable, reliable, and maintainable data-intensive applications.        | [ ]  | [ ]    |
 | [Modern Software Engineering](https://www.goodreads.com/book/show/59072155-modern-software-engineering)                                 | Dave Farley's guide to software engineering, emphasizing practical techniques for developing robust, maintainable, and adaptive software. | [ ]  | [ ]    |
 
-
 ## Tools
-* https://effect.website/ - 
+* [Effect](https://effect.website/) - Interesting looking schema validation library

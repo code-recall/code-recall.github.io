@@ -8,8 +8,6 @@ Every week, every other week or just whenever suits.
 
 ### Week of October 10, 2024
 
-/table 
-
 | Article                                        | Link                                                                                  | Jack | Adrian |
 |------------------------------------------------|---------------------------------------------------------------------------------------|------|--------|
 | UI/UX Design Rules                             | [Read Here](https://www.anthonyhobday.com/sideprojects/saferules/)                    | [ ]  | [ ]    |

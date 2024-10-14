@@ -8,12 +8,14 @@ Every week, every other week or just whenever suits.
 
 ### Week of October 10, 2024
 
+/table 
+
 | Article                                        | Link                                                                                  | Jack | Adrian |
 |------------------------------------------------|---------------------------------------------------------------------------------------|------|--------|
 | UI/UX Design Rules                             | [Read Here](https://www.anthonyhobday.com/sideprojects/saferules/)                    | [ ]  | [ ]    |
 | How to Create Effective Teams                  | [Read Here](https://addyosmani.com/blog/effective-teams/?ck_subscriber_id=1646293088) | [ ]  | [ ]    |
-| Be the Browser's Mentor, Not Its Micro-Manager | [Watch Here](https://www.youtube.com/watch?v=5uhIiI9Ld5M)                             | [ ]  | [x]    |
-| The UX of HTML: A Case for Semantic HTML       | [Read Here](https://www.htmhell.dev/adventcalendar/2023/1/)                           | [ ]  | [x]    |
+| Be the Browser's Mentor, Not Its Micro-Manager | [Watch Here](https://www.youtube.com/watch?v=5uhIiI9Ld5M)                             | [x]  | [x]    |
+| The UX of HTML: A Case for Semantic HTML       | [Read Here](https://www.htmhell.dev/adventcalendar/2023/1/)                           | [x]  | [x]    |
 
 
 ## Books

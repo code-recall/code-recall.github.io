@@ -30,8 +30,7 @@ Every week, every other week or just whenever suits.
 | Myths About useEffect        | [Read Here](https://www.epicreact.dev/myths-about-useeffect)      | [ ]  | [ ]    |
 | Memoization and React        | [Read Here](https://www.epicreact.dev/memoization-and-react)      | [ ]  | [ ]    |
 | useMemo and useCallback      | [Read Here](https://kentcdodds.com/blog/usememo-and-usecallback)  | [ ]  | [ ]    |
-| Why You Want Need React Query
-      | [Read Here]([https://kentcdodds.com/blog/usememo-and-usecallback](https://tkdodo.eu/blog/why-you-want-react-query))  | [ ]  | [ ]    |
+| Why You Want Need React Query | [Read Here](https://tkdodo.eu/blog/why-you-want-react-query)  | [ ]  | [ ]    |
 
 
 

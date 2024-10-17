@@ -11,7 +11,7 @@ TailwindCSS has first class support for pseudo class modifiers. This means that:
 >
 > [Handling Hover, Focus, And Other States](https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-classes)
 
-As I discuss in [[A Design System Worthy Tag Component For Kwicherbelliaken#What is CLSX?]] utilities like `clsx` and `classnames`'s job is to:
+The job of utilities like `clsx` and `classnames`'s is to:
 
 > ... make dynamic and conditional `className` props simpler to work with (especially more so than conditional string manipulation).
 >

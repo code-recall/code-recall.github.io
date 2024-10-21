@@ -28,10 +28,20 @@ Every week, every other week or just whenever suits.
 | Article                       | Link                                                              | Jack | Adrian |
 | ----------------------------- | ----------------------------------------------------------------- | ---- | ------ |
 | You Might Not Need an Effect  | [Read Here](https://react.dev/learn/you-might-not-need-an-effect) | [x]  | [x]    |
-| Myths About useEffect         | [Read Here](https://www.epicreact.dev/myths-about-useeffect)      | [ ]  | [x]    |
-| Memoization and React         | [Read Here](https://www.epicreact.dev/memoization-and-react)      | [ ]  | [x]    |
-| useMemo and useCallback       | [Read Here](https://kentcdodds.com/blog/usememo-and-usecallback)  | [ ]  | [x]    |
+| Myths About useEffect         | [Read Here](https://www.epicreact.dev/myths-about-useeffect)      | [x]  | [x]    |
+| Memoization and React         | [Read Here](https://www.epicreact.dev/memoization-and-react)      | [x]  | [x]    |
+| useMemo and useCallback       | [Read Here](https://kentcdodds.com/blog/usememo-and-usecallback)  | [x]  | [x]    |
 | Why You Want Need React Query | [Read Here](https://tkdodo.eu/blog/why-you-want-react-query)      | [x]  | [x]    |
+
+### Week of October 21, 2024
+
+| Article                       | Link                                                              | Jack | Adrian |
+| ----------------------------- | ----------------------------------------------------------------- | ---- | ------ |
+| Styling With Stateful Semantic Selectors | [Read Here](https://benmyers.dev/blog/semantic-selectors/) | [ ]  | [ ]    |
+| Improving Rendering Performance With CSS Selectors | [Read Here](https://nolanlawson.com/2024/09/18/improving-rendering-performance-with-css-content-visibility/) | [ ]  | [ ]    |
+| The Good Things About Hard Things | [Read Here](https://www.notboring.co/p/the-good-thing-about-hard-things) | [ ]  | [ ]    |
+| 3 Steps to Solve Most Design Problems | [Read Here](https://khalilstemmler.com/letters/3-steps-to-solve-most-design-problems/) | [ ]  | [ ]    |
+
 
 ## Books
 

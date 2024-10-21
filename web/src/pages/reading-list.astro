@@ -1,66 +1,61 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
 
-const readingList = await Astro.glob('../content/reading-list/*.mdx')
+const readingList = await getCollection('reading-list')
 ---
 
 <BaseLayout title="Reading List">
-  {
-    readingList.map(({ Content }) => (
-      // TODO: do some really great CSS instead of this
-      <section class="table-container">
-        <Content />
-      </section>
-    ))
-  }
+  <h1>Reading List</h1>
+
+  <div class="content">
+    {
+      readingList.map(async (item) => {
+        const { Content } = await item.render()
+        return <Content />
+      })
+    }
+  </div>
 </BaseLayout>
 
 <style is:global>
-  .table-container {
+  .content {
     width: 100%;
     max-width: 800px;
-    padding-bottom: 3em;
+    & table {
+      margin-bottom: 3em;
+    }
   }
 
   table {
-    width: 100%;
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.5;
     border-collapse: collapse;
-  }
+    text-indent: initial;
+    border-spacing: 2px;
+    font-family: system-ui;
+    width: 100%;
 
-  th,
-  caption {
-    text-align: start;
-  }
+    & :is(td, th) {
+      border-style: solid;
+      padding: 0.5ch 1ch;
+      border-color: darkgray;
+      padding: 2ch;
+    }
 
-  caption {
-    margin-block: 0.75rem;
-  }
+    & tr:nth-of-type(odd):not(:only-child) {
+      background: #f2f2f2;
+    }
 
-  thead th:not(:first-child),
-  td {
-    text-align: start;
-  }
+    & td:nth-of-type(n + 3) {
+      text-align: center;
+    }
 
-  th,
-  td {
-    border: 1px solid;
-  }
+    & td:first-of-type,
+    & th:first-of-type {
+      max-width: 200px;
+    }
 
-  thead {
-    border-block-end: 2px solid;
-    background: whitesmoke;
-  }
-
-  tfoot {
-    border-block: 2px solid;
-    background: whitesmoke;
-  }
-
-  th,
-  td {
-    border: 1px solid lightgrey;
-    padding: 0.25rem 0.75rem;
+    & td:nth-of-type(2) {
+      max-width: 60px;
+    }
   }
 </style>

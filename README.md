@@ -18,21 +18,19 @@ Every week, every other week or just whenever suits.
 | Article                                        | Link                                                                                  | Jack | Adrian |
 |------------------------------------------------|---------------------------------------------------------------------------------------|------|--------|
 | UI/UX Design Rules                             | [Read Here](https://www.anthonyhobday.com/sideprojects/saferules/)                    | [ ]  | [ ]    |
-| How to Create Effective Teams                  | [Read Here](https://addyosmani.com/blog/effective-teams/?ck_subscriber_id=1646293088) | [ ]  | [ ]    |
+| How to Create Effective Teams                  | [Read Here](https://addyosmani.com/blog/effective-teams/?ck_subscriber_id=1646293088) | [ ]  | [x]    |
 | Be the Browser's Mentor, Not Its Micro-Manager | [Watch Here](https://www.youtube.com/watch?v=5uhIiI9Ld5M)                             | [x]  | [x]    |
 | The UX of HTML: A Case for Semantic HTML       | [Read Here](https://www.htmhell.dev/adventcalendar/2023/1/)                           | [x]  | [x]    |
 
 ### Week of October 14, 2024
 
-| Article                      | Link                                                              | Jack | Adrian |
-|------------------------------|-------------------------------------------------------------------|------|--------|
-| You Might Not Need an Effect | [Read Here](https://react.dev/learn/you-might-not-need-an-effect) | [x]  | [ ]    |
-| Myths About useEffect        | [Read Here](https://www.epicreact.dev/myths-about-useeffect)      | [ ]  | [ ]    |
-| Memoization and React        | [Read Here](https://www.epicreact.dev/memoization-and-react)      | [ ]  | [ ]    |
-| useMemo and useCallback      | [Read Here](https://kentcdodds.com/blog/usememo-and-usecallback)  | [ ]  | [ ]    |
-| Why You Want Need React Query | [Read Here](https://tkdodo.eu/blog/why-you-want-react-query)  | [x]  | [ ]    |
-
-
+| Article                       | Link                                                              | Jack | Adrian |
+|-------------------------------|-------------------------------------------------------------------|------|--------|
+| You Might Not Need an Effect  | [Read Here](https://react.dev/learn/you-might-not-need-an-effect) | [x]  | [x]    |
+| Myths About useEffect         | [Read Here](https://www.epicreact.dev/myths-about-useeffect)      | [ ]  | [x]    |
+| Memoization and React         | [Read Here](https://www.epicreact.dev/memoization-and-react)      | [ ]  | [x]    |
+| useMemo and useCallback       | [Read Here](https://kentcdodds.com/blog/usememo-and-usecallback)  | [ ]  | [x]    |
+| Why You Want Need React Query | [Read Here](https://tkdodo.eu/blog/why-you-want-react-query)      | [x]  | [x]    |
 
 
 ## Books

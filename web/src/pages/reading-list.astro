@@ -1,0 +1,66 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const readingList = await Astro.glob('../content/reading-list/*.mdx')
+---
+
+<BaseLayout title="Reading List">
+  {
+    readingList.map(({ Content }) => (
+      // TODO: do some really great CSS instead of this
+      <section class="table-container">
+        <Content />
+      </section>
+    ))
+  }
+</BaseLayout>
+
+<style is:global>
+  .table-container {
+    width: 100%;
+    max-width: 800px;
+    padding-bottom: 3em;
+  }
+
+  table {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    border-collapse: collapse;
+  }
+
+  th,
+  caption {
+    text-align: start;
+  }
+
+  caption {
+    margin-block: 0.75rem;
+  }
+
+  thead th:not(:first-child),
+  td {
+    text-align: start;
+  }
+
+  th,
+  td {
+    border: 1px solid;
+  }
+
+  thead {
+    border-block-end: 2px solid;
+    background: whitesmoke;
+  }
+
+  tfoot {
+    border-block: 2px solid;
+    background: whitesmoke;
+  }
+
+  th,
+  td {
+    border: 1px solid lightgrey;
+    padding: 0.25rem 0.75rem;
+  }
+</style>

@@ -37,7 +37,7 @@ Every week, every other week or just whenever suits.
 
 | Article                       | Link                                                              | Jack | Adrian |
 | ----------------------------- | ----------------------------------------------------------------- | ---- | ------ |
-| Styling With Stateful Semantic Selectors | [Read Here](https://benmyers.dev/blog/semantic-selectors/) | [ ]  | [ ]    |
+| Rpresent State With HTML Attributes | [Read Here](https://www.aleksandrhovhannisyan.com/blog/represent-state-with-html-attributes-not-class-names/) | [ ]  | [ ]    |
 | Improving Rendering Performance With CSS Selectors | [Read Here](https://nolanlawson.com/2024/09/18/improving-rendering-performance-with-css-content-visibility/) | [ ]  | [ ]    |
 | The Good Things About Hard Things | [Read Here](https://www.notboring.co/p/the-good-thing-about-hard-things) | [ ]  | [ ]    |
 | 3 Steps to Solve Most Design Problems | [Read Here](https://khalilstemmler.com/letters/3-steps-to-solve-most-design-problems/) | [ ]  | [ ]    |

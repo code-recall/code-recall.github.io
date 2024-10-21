@@ -4,11 +4,14 @@ interface Props {
   description?: string
 }
 
+import favicon from '../../public/favicon.svg'
+
 const { title, description } = Astro.props
 ---
 
 <html lang="en">
   <head>
+    <link rel="icon" type="image/svg+xml" href={favicon.src} />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
@@ -18,10 +21,10 @@ const { title, description } = Astro.props
     <header>
       <ul>
         <li>
-          <a href={`${import.meta.env.BASE_URL}`}>Home 🏠</a>
+          <a href="/">Home 🏠</a>
         </li>
         <li>
-          <a href={`${import.meta.env.BASE_URL}/reading-list`}>Reading List 📖</a>
+          <a href="/reading-list">Reading List 📖</a>
         </li>
       </ul>
     </header>

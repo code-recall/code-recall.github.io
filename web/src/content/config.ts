@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content'
+import { defineCollection } from 'astro:content'
 
 const readingList = defineCollection({
   type: 'content',

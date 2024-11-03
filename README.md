@@ -35,12 +35,11 @@ Every week, every other week or just whenever suits.
 
 ### Week of October 21, 2024
 
-| Article                       | Link                                                              | Jack | Adrian |
-| ----------------------------- | ----------------------------------------------------------------- | ---- | ------ |
-| Rpresent State With HTML Attributes | [Read Here](https://www.aleksandrhovhannisyan.com/blog/represent-state-with-html-attributes-not-class-names/) | [ ]  | [ ]    |
-| Improving Rendering Performance With CSS Selectors | [Read Here](https://nolanlawson.com/2024/09/18/improving-rendering-performance-with-css-content-visibility/) | [ ]  | [ ]    |
-| 3 Steps to Solve Most Design Problems | [Read Here](https://khalilstemmler.com/letters/3-steps-to-solve-most-design-problems/) | [x]  | [ ]    |
-
+| Article                                            | Link                                                                                                          | Jack | Adrian |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---- | ------ |
+| Rpresent State With HTML Attributes                | [Read Here](https://www.aleksandrhovhannisyan.com/blog/represent-state-with-html-attributes-not-class-names/) | [ ]  | [x]    |
+| Improving Rendering Performance With CSS Selectors | [Read Here](https://nolanlawson.com/2024/09/18/improving-rendering-performance-with-css-content-visibility/)  | [ ]  | [x]    |
+| 3 Steps to Solve Most Design Problems              | [Read Here](https://khalilstemmler.com/letters/3-steps-to-solve-most-design-problems/)                        | [x]  | [x]    |
 
 ## Books
 

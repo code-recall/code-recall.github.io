@@ -48,7 +48,9 @@ Every week, every other week or just whenever suits.
 | [System Design Interview – An insider's guide](https://www.goodreads.com/book/show/54109255-system-design-interview-an-insider-s-guide) | A comprehensive guide to system design interviews, offering insights and strategies to help prepare for technical interviews.             | [ ]  | [ ]    |
 | [Designing Data-Intensive Applications](https://www.goodreads.com/book/show/23463279-designing-data-intensive-applications)             | An in-depth look at the principles and practices behind building scalable, reliable, and maintainable data-intensive applications.        | [ ]  | [ ]    |
 | [Modern Software Engineering](https://www.goodreads.com/book/show/59072155-modern-software-engineering)                                 | Dave Farley's guide to software engineering, emphasizing practical techniques for developing robust, maintainable, and adaptive software. | [ ]  | [ ]    |
+| [Code Complete](https://tinyurl.com/2es5asfx)                                                                                           | Practical language agnostic guide to programming.                                                                                         | [ ]  | [ ]    |
 
 ## Tools
 
 - [Effect](https://effect.website/) - Interesting looking schema validation library
+- [nuqs](https://nuqs.47ng.com/) - Type-safe search params state manager for React

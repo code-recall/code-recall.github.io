@@ -1,0 +1,38 @@
+## Small-scale permissions pattern
+
+```typescript
+export type Role = keyof ROLES
+type Permission = (typeof ROLES)[Role][number]
+
+const ROLES = {
+  admin: ['view:comments', 'create:comments', 'update:comments', 'delete:comments'],
+  user: ['view:comments', 'create:comments', 'update:comments', 'delete:ownComments', 'update:ownComments'],
+} as const
+
+export function hasPermission(user: { id: string; role: Role }, permission: Permission) {
+  return (ROLES[user.role] as readonly Permission[]).includes(permission)
+}
+```
+
+
+```jsx
+import { hasPermission, Role } from '@/lib/auth'
+
+const user: { id: string, role: Role } = { role: 'user', id: '1' }
+const commentAuthorId = '1'
+
+export default async function Page() {
+  const hasDeletePermission = hasPermission(user, 'delete:comments')
+    || ((hasPermission(user, 'delete:ownComments') && commentAuthorId === user.id)
+
+  return (
+    <div>
+      <p>Content of comment is being displayed here</p>
+      {hasDeletePermission && <button>Delete</button>)}
+    </div>
+  )
+}
+```
+
+## Large-scale permissions pattern
+ABAC - Attribute Base Access Control

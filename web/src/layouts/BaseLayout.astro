@@ -1,4 +1,6 @@
 ---
+import '@fontsource/merriweather'
+
 import Header from '../components/Header.astro'
 import favicon from '../../public/favicon.svg'
 
@@ -29,7 +31,7 @@ const { title, description } = Astro.props
   </body>
 </html>
 
-<style>
+<style is:global>
   /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -73,6 +75,7 @@ const { title, description } = Astro.props
   h5,
   h6 {
     overflow-wrap: break-word;
+    font-family: 'Merriweather', serif;
   }
 
   p {
@@ -93,9 +96,10 @@ const { title, description } = Astro.props
   }
 
   main {
-    min-height: 100vh;
     padding: 1.5rem;
-    max-width: 800px;
     margin: 0 auto;
+    min-height: 100vh;
+    max-width: 800px;
+    width: 100%;
   }
 </style>

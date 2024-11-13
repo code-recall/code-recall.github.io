@@ -7,7 +7,7 @@ const dateDescending = readingList.sort((a, b) => b.data.pubDate.getTime() - a.d
 ---
 
 <BaseLayout title="Reading List">
-  <h1>Reading List</h1>
+  <h1 style={{ marginBottom: '1.4rem' }}>Reading List</h1>
 
   <div class="content">
     {
@@ -15,7 +15,7 @@ const dateDescending = readingList.sort((a, b) => b.data.pubDate.getTime() - a.d
         const { Content } = await item.render()
         return (
           <div>
-            <h3>
+            <h3 style={{ marginBottom: '1.4rem' }}>
               Week of{' '}
               {new Date(item.data.pubDate).toLocaleDateString('en-GB', {
                 day: '2-digit',
@@ -44,7 +44,6 @@ const dateDescending = readingList.sort((a, b) => b.data.pubDate.getTime() - a.d
     border-collapse: collapse;
     text-indent: initial;
     border-spacing: 2px;
-    font-family: system-ui;
     width: 100%;
 
     & :is(td, th) {

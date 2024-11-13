@@ -12,7 +12,7 @@ export const getStaticPaths = (async () => {
   const posts = await getCollection('blog')
 
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.slug.split('/').at(1) },
     props: { post },
   }))
 }) satisfies GetStaticPaths
@@ -22,6 +22,8 @@ const { Content } = await post.render()
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
+  <a href="/blog" class="button-link">Back</a>
+
   <article>
     <h1>{post.data.title}</h1>
     <p>Author: {post.data.author}</p>
@@ -29,3 +31,15 @@ const { Content } = await post.render()
     <Content />
   </article>
 </BaseLayout>
+
+<style>
+  .button-link {
+    display: inline-block;
+    margin-bottom: 1em;
+    font-size: 22px;
+    background-color: lightblue;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    margin: 0.5em 0;
+  }
+</style>

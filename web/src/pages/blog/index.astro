@@ -1,0 +1,108 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('blog')
+---
+
+<BaseLayout title="Blog">
+  <h1>Blog</h1>
+
+  <ul class="cards">
+    {
+      posts.map((post) => {
+        const slug = `blog/${post.slug.split('/').at(1)}/`
+
+        return (
+          <li class="card">
+            <a href={slug}>
+              <p class="meta">
+                <span>{post.data.author}</span>
+                <span>
+                  {post.data.pubDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                  })}
+                </span>
+              </p>
+
+              {post.data.tags?.length && (
+                <ul class="tags">
+                  {post.data.tags.map((tag) => (
+                    <li>{tag}</li>
+                  ))}
+                </ul>
+              )}
+
+              <p class="title">{post.data.title}</p>
+              <p class="description">{post.data.description}</p>
+            </a>
+          </li>
+        )
+      })
+    }
+  </ul>
+</BaseLayout>
+
+<style>
+  .cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .card {
+    padding: 32px 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+  }
+
+  .card a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .meta {
+    display: flex;
+    font-size: 16px;
+    gap: 1ch;
+    margin-bottom: 0.5em;
+  }
+
+  .meta span:first-of-type {
+    font-weight: bold;
+  }
+
+  .meta span:last-of-type {
+    color: gray;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .tags {
+    list-style: none;
+    margin-top: 1rem;
+    padding: 0;
+    display: flex;
+  }
+
+  .tags li {
+    background-color: lightblue;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+
+  .tags li:not(:last-of-type) {
+    margin-right: 1ch;
+  }
+</style>

@@ -1,27 +1,13 @@
 ---
+import Header from '../components/Header.astro'
+import favicon from '../../public/favicon.svg'
+
 interface Props {
   title: string
   description?: string
 }
 
-import favicon from '../../public/favicon.svg'
-
 const { title, description } = Astro.props
-
-const siteLinks = [
-  {
-    href: '/',
-    title: 'Home',
-  },
-  {
-    href: '/reading-list',
-    title: 'Reading List',
-  },
-  {
-    href: '/blog',
-    title: 'Blog',
-  },
-]
 ---
 
 <html lang="en">
@@ -33,20 +19,83 @@ const siteLinks = [
     <meta name="description" content={description} />
   </head>
   <body>
-    <header>
-      <ul>
-        {
-          siteLinks.map((link) => (
-            <li>
-              <a href={link.href}>{link.title}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </header>
+    <Header />
+
     <main>
       <slot />
     </main>
+
     <footer></footer>
   </body>
 </html>
+
+<style>
+  /*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+
+  main {
+    min-height: 100vh;
+    padding: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+</style>

@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 
 const readingList = await getCollection('reading-list')
+const dateDescending = readingList.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
 ---
 
 <BaseLayout title="Reading List">
@@ -10,9 +11,21 @@ const readingList = await getCollection('reading-list')
 
   <div class="content">
     {
-      readingList.map(async (item) => {
+      dateDescending.map(async (item) => {
         const { Content } = await item.render()
-        return <Content />
+        return (
+          <div>
+            <h3>
+              Week of{' '}
+              {new Date(item.data.pubDate).toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+              })}
+            </h3>
+            <Content />
+          </div>
+        )
       })
     }
   </div>

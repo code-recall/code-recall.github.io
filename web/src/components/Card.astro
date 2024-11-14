@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+export interface Props {
+  post: CollectionEntry<'blog'>
+}
+
+const { post } = Astro.props
+---
+
+<a href={`/blog/${post.slug.split('/').at(1)}`} class="card">
+  <article>
+    <p class="meta">
+      <span>{post.data.author}</span>
+      <time>
+        {
+          post.data.pubDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })
+        }
+      </time>
+    </p>
+
+    {
+      post.data.tags?.length && (
+        <ul class="tags">
+          {post.data.tags.map((tag) => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+
+    <p class="title">{post.data.title}</p>
+    <p class="description">{post.data.description}</p>
+  </article>
+</a>
+
+<style>
+  .card {
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block;
+    padding: 32px 16px;
+    border-radius: 8px;
+
+    & article {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+  }
+
+  .meta {
+    display: flex;
+    font-size: 16px;
+    gap: var(--space-xs);
+
+    & span {
+      font-weight: bold;
+    }
+
+    & time {
+      color: gray;
+    }
+  }
+
+  .tags {
+    display: flex;
+    gap: var(--space-xs);
+
+    & li {
+      background-color: lightblue;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+  }
+</style>

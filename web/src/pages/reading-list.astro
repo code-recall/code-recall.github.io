@@ -1,73 +1,26 @@
 ---
+import ReadingListTable from '@/components/ReadingListTable.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 
-const readingList = await getCollection('reading-list')
-const dateDescending = readingList.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+const readingListDateDescending = await getCollection('reading-list').then((res) =>
+  res.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+)
 ---
 
 <BaseLayout title="Reading List">
-  <h1 style={{ marginBottom: '1.4rem' }}>Reading List</h1>
+  <h1>Reading List</h1>
 
   <div class="content">
     {
-      dateDescending.map(async (item) => {
+      readingListDateDescending.map(async (item) => {
         const { Content } = await item.render()
         return (
-          <div>
-            <h3 style={{ marginBottom: '1.4rem' }}>
-              Week of{' '}
-              {new Date(item.data.pubDate).toLocaleDateString('en-GB', {
-                day: '2-digit',
-                month: 'short',
-                year: 'numeric',
-              })}
-            </h3>
+          <ReadingListTable date={item.data.pubDate}>
             <Content />
-          </div>
+          </ReadingListTable>
         )
       })
     }
   </div>
 </BaseLayout>
-
-<style is:global>
-  .content {
-    width: 100%;
-    max-width: 800px;
-    & table {
-      margin-bottom: 3em;
-    }
-  }
-
-  table {
-    border-collapse: collapse;
-    text-indent: initial;
-    border-spacing: 2px;
-    width: 100%;
-
-    & :is(td, th) {
-      border-style: solid;
-      padding: 0.5ch 1ch;
-      border-color: darkgray;
-      padding: 2ch;
-    }
-
-    & tr:nth-of-type(odd):not(:only-child) {
-      background: #f2f2f2;
-    }
-
-    & td:nth-of-type(n + 3) {
-      text-align: center;
-    }
-
-    & td:first-of-type,
-    & th:first-of-type {
-      max-width: 200px;
-    }
-
-    & td:nth-of-type(2) {
-      max-width: 60px;
-    }
-  }
-</style>

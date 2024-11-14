@@ -66,4 +66,8 @@ const pathname = new URL(Astro.request.url).pathname
   .nav-link[aria-current='page'] {
     text-decoration-color: black;
   }
+
+  .nav-link:focus-visible {
+    transition: none;
+  }
 </style>

@@ -1,0 +1,42 @@
+:root {
+  --gutter: var(--space-s-m);
+  --border-radius: var(--size-step-1);
+  --transition-base: 250ms ease;
+  --transition-movement: 200ms linear;
+  --transition-fade: 200ms ease;
+  --transition-bounce: 500ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
+  --tracking: -0.05ch;
+  --tracking-s: -0.075ch;
+
+  --space-3xs: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
+  --space-2xs: clamp(0.5rem, 0.5rem + 0vw, 0.5rem);
+  --space-xs: clamp(0.75rem, 0.75rem + 0vw, 0.75rem);
+  --space-s: clamp(1rem, 1rem + 0vw, 1rem);
+  --space-m: clamp(1.5rem, 1.5rem + 0vw, 1.5rem);
+  --space-l: clamp(2rem, 2rem + 0vw, 2rem);
+  --space-xl: clamp(3rem, 3rem + 0vw, 3rem);
+  --space-2xl: clamp(4rem, 4rem + 0vw, 4rem);
+  --space-3xl: clamp(6rem, 6rem + 0vw, 6rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.25rem, 0.0833rem + 0.8333vw, 0.5rem);
+  --space-2xs-xs: clamp(0.5rem, 0.3333rem + 0.8333vw, 0.75rem);
+  --space-xs-s: clamp(0.75rem, 0.5833rem + 0.8333vw, 1rem);
+  --space-s-m: clamp(1rem, 0.6667rem + 1.6667vw, 1.5rem);
+  --space-m-l: clamp(1.5rem, 1.1667rem + 1.6667vw, 2rem);
+  --space-l-xl: clamp(2rem, 1.3333rem + 3.3333vw, 3rem);
+  --space-xl-2xl: clamp(3rem, 2.3333rem + 3.3333vw, 4rem);
+  --space-2xl-3xl: clamp(4rem, 2.6667rem + 6.6667vw, 6rem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(1rem, 0.3333rem + 3.3333vw, 2rem);
+
+  --step--2: clamp(0.64rem, 0.7307rem + -0.1815vw, 0.6944rem);
+  --step--1: clamp(0.8rem, 0.8556rem + -0.1111vw, 0.8333rem);
+  --step-0: clamp(1rem, 1rem + 0vw, 1rem);
+  --step-1: clamp(1.2rem, 1.1667rem + 0.1667vw, 1.25rem);
+  --step-2: clamp(1.44rem, 1.3583rem + 0.4083vw, 1.5625rem);
+  --step-3: clamp(1.728rem, 1.5779rem + 0.7504vw, 1.9531rem);
+  --step-4: clamp(2.0736rem, 1.8284rem + 1.226vw, 2.4414rem);
+  --step-5: clamp(2.4883rem, 2.1127rem + 1.8781vw, 3.0518rem);
+}

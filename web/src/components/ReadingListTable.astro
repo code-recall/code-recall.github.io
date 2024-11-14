@@ -1,0 +1,59 @@
+---
+const { date } = Astro.props
+---
+
+<div class="reading-list-table">
+  <h4>
+    Week of{' '}
+    {
+      new Date(date).toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+      })
+    }
+  </h4>
+
+  <slot />
+</div>
+
+<style is:global>
+  .reading-list-table {
+    margin-bottom: var(--space-2xl);
+
+    & h4 {
+      margin-bottom: var(--space-m);
+    }
+  }
+
+  .reading-list-table table {
+    border-collapse: collapse;
+    text-indent: initial;
+    border-spacing: 2px;
+    width: 100%;
+
+    & :is(td, th) {
+      border-style: solid;
+      padding: 0.5ch 1ch;
+      border-color: darkgray;
+      padding: 2ch;
+    }
+
+    & tr:nth-of-type(odd):not(:only-child) {
+      background: #f2f2f2;
+    }
+
+    & td:nth-of-type(n + 3) {
+      text-align: center;
+    }
+
+    & td:first-of-type,
+    & th:first-of-type {
+      max-width: 200px;
+    }
+
+    & td:nth-of-type(2) {
+      max-width: 60px;
+    }
+  }
+</style>

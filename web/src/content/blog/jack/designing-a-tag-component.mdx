@@ -17,7 +17,7 @@ I use tags to sort my blog topics. I recognised that, as a component, they offer
 
 Material Design's definition for a secondary colour:
 
-> A **secondary color** provides more ways to accent and distinguish your product. Having a secondary color is optional, and should be applied sparingly to accent select parts of your UI.
+> A **secondary color** provides more ways to accent and distinguish your product. Having a secondary color is optional, and should be applied sparingly to accent select parts of your UI.
 >
 > If you don’t have a secondary color, your primary color can also be used to accent elements.
 >
@@ -35,22 +35,22 @@ For me, my secondary colour is red. So, I need to introduce this into my design 
 
 ```typescript title="designToken.ts"
 const baseColourTokens = {
-	red: {
-		// bgColour utilities
-		50: "hsl(var(--base-colour-red-50) / <alpha-value>)",
-		100: "hsl(var(--base-colour-red-100) / <alpha-value>)",
-		200: "hsl(var(--base-colour-red-200) / <alpha-value>)",
-		300: "hsl(var(--base-colour-red-300) / <alpha-value>)",
-		400: "hsl(var(--base-colour-red-400) / <alpha-value>)",
-		// borderColour utilities
-		500: "hsl(var(--base-colour-red-500) / <alpha-value>)",
-		600: "hsl(var(--base-colour-red-600) / <alpha-value>)",
-		700: "hsl(var(--base-colour-red-700) / <alpha-value>)",
-		// fgColour utilities
-		800: "hsl(var(--base-colour-red-800) / <alpha-value>)",
-		900: "hsl(var(--base-colour-red-900) / <alpha-value>)",
-		950: "hsl(var(--base-colour-red-950) / <alpha-value>)",
-	},
+  red: {
+    // bgColour utilities
+    50: "hsl(var(--base-colour-red-50) / <alpha-value>)",
+    100: "hsl(var(--base-colour-red-100) / <alpha-value>)",
+    200: "hsl(var(--base-colour-red-200) / <alpha-value>)",
+    300: "hsl(var(--base-colour-red-300) / <alpha-value>)",
+    400: "hsl(var(--base-colour-red-400) / <alpha-value>)",
+    // borderColour utilities
+    500: "hsl(var(--base-colour-red-500) / <alpha-value>)",
+    600: "hsl(var(--base-colour-red-600) / <alpha-value>)",
+    700: "hsl(var(--base-colour-red-700) / <alpha-value>)",
+    // fgColour utilities
+    800: "hsl(var(--base-colour-red-800) / <alpha-value>)",
+    900: "hsl(var(--base-colour-red-900) / <alpha-value>)",
+    950: "hsl(var(--base-colour-red-950) / <alpha-value>)",
+  },
 };
 ```
 
@@ -58,7 +58,7 @@ I then exposed this red as a functional colour token following Primer's pattern 
 
 ```typescript title="designToken.ts"
 export const functionalColourTokens = {
-	["fgColour-accent"]: baseColourTokens.red["950"],
+  ["fgColour-accent"]: baseColourTokens.red["950"],
 };
 ```
 
@@ -117,7 +117,7 @@ export interface BadgeProps
 function Badge({ className, variant, ...props }: BadgeProps) {
   return (
     <div className={cn(badgeVariants({ variant }), className)} {...props} />
-  )
+  );
 }
 ```
 
@@ -131,7 +131,7 @@ Think, if the component isn't built right, it’s hard to refactor and extend to
 
 This is where cva steps in:
 
-> `cva` aims to take those pain points away, allowing you to focus on the more fun aspects of UI development.
+> `cva` aims to take those pain points away, allowing you to focus on the more fun aspects of UI development.
 >
 > [CVA Documentation](https://cva.style/docs)
 
@@ -139,22 +139,23 @@ Using the ShadCN Badge example, cva (Class Variance Authority) is a utility that
 
 ```typescript title="shadcn-badge-component.ts"
 const badgeVariants = cva(
-	"inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-	{
-		variants: {
-			variant: {
-				default: "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-				secondary:
-					"border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-				destructive:
-					"border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-				outline: "text-foreground",
-			},
-		},
-		defaultVariants: {
-			variant: "default",
-		},
-	},
+  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  {
+    variants: {
+      variant: {
+        default:
+          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+        secondary:
+          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+        outline: "text-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
 );
 ```
 
@@ -162,44 +163,50 @@ I also found this resource from [Coding in Public](https://www.youtube.com/watch
 
 This is my Tag component using the Class Variance Authority library. I wrote it as an Astro component because Kwicherbelliaken is an Astro site and CVA had an Astro explainer.
 
-```javascript title="Tag.astro"
+```astro title="Tag.astro"
 ---
 import type { HTMLAttributes } from "astro/types";
 
 import { type VariantProps, cva } from "cva";
 
 const tag = cva(
-	"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-	{
-		compoundVariants: [{ class: "uppercase", size: "medium", variant: "primary" }],
-		variants: {
-			size: {
-				medium: ["text-base", "py-2", "px-4"],
-				small: ["text-sm", "py-1", "px-2"],
-			},
-			variant: {
-				accent: "text-fgColour-accent border-fgColour-accent shadow hover:text-fgColour-accent/60",
-				primary:
-					"text-fgColour-default border-fgColour-default shadow hover:text-fgColour-default/60",
-				secondary: "text-fgColour-muted border-fgColour-muted shadow hover:text-fgColour-muted/60",
-			},
-		},
-	}
+  "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  {
+    compoundVariants: [
+      { class: "uppercase", size: "medium", variant: "primary" },
+    ],
+    variants: {
+      size: {
+        medium: ["text-base", "py-2", "px-4"],
+        small: ["text-sm", "py-1", "px-2"],
+      },
+      variant: {
+        accent:
+          "text-fgColour-accent border-fgColour-accent shadow hover:text-fgColour-accent/60",
+        primary:
+          "text-fgColour-default border-fgColour-default shadow hover:text-fgColour-default/60",
+        secondary:
+          "text-fgColour-muted border-fgColour-muted shadow hover:text-fgColour-muted/60",
+      },
+    },
+  }
 );
 
-export interface TagProps extends HTMLAttributes<"span">, VariantProps<typeof tag> {}
+export interface TagProps
+  extends HTMLAttributes<"span">,
+    VariantProps<typeof tag> {}
 
 /**
  * For Astro components, we recommend setting your defaultVariants within
  * Astro.props (which are `undefined` by default)
  */
 const { size = "medium", variant = "primary" } = Astro.props;
+
 ---
 
 <span class={tag({ size, variant })}>
-	<slot />
+  <slot />
 </span>
-
 ```
 
 But I wasn't finished. Both the Coding in Public video and ShadCN made use of two other libraries: Tailwind Merge and CLSX.
@@ -208,15 +215,15 @@ But I wasn't finished. Both the Coding in Public video and ShadCN made use of tw
 
 [Tailwind Merge](https://www.npmjs.com/package/tailwind-merge) is a library that, amongst other things, removes conflicting classes. It loads only the classes that legitimately affect an element's style. It follows the classic CSS convention of letting classes listed lower in the stylesheet take priority. Using the example below, className would evaluate as `p-3` because `px-2` and `py-1` are ignored as styles.
 
-```javascript
+```jsx
 <div className={twMerge("px-2 py-1", "p-3")} />
 ```
 
 Adding `twMerge` to my example:
 
-```javascript title="Tag.astro"
+```jsx title="Tag.astro"
 <span class={twMerge(tag({ size, variant }))}>
-	<slot />
+  <slot />
 </span>
 ```
 
@@ -226,63 +233,64 @@ Tailwind Merge is a powerful tool when paired with `clsx`. `clsx` handles condit
 
 As mentioned, `clsx` is a utility for conditionally constructing classnames. It is very similar to the `classnames` utility which defines its primary use case as:
 
-> ... is to make dynamic and conditional `className` props simpler to work with (especially more so than conditional string manipulation).
+> ... is to make dynamic and conditional `className` props simpler to work with (especially more so than conditional string manipulation).
 >
 > [classnames README](https://github.com/JedWatson/classnames?tab=readme-ov-file#usage-with-reactjs)
 
-```javascript title="Button.jsx"
+```jsx title="Button.jsx"
 import React, { useState } from "react";
 
 export default function Button(props) {
-	const [isPressed, setIsPressed] = useState(false);
-	const [isHovered, setIsHovered] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-	let btnClass = "btn";
-	if (isPressed) btnClass += " btn-pressed";
-	else if (isHovered) btnClass += " btn-over";
+  let btnClass = "btn";
+  if (isPressed) btnClass += " btn-pressed";
+  else if (isHovered) btnClass += " btn-over";
 
-	return (
-		<button
-			className={btnClass}
-			onMouseDown={() => setIsPressed(true)}
-			onMouseUp={() => setIsPressed(false)}
-			onMouseEnter={() => setIsHovered(true)}
-			onMouseLeave={() => setIsHovered(false)}
-		>
-			{props.label}
-		</button>
-	);
+  return (
+    <button
+      className={btnClass}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {props.label}
+    </button>
+  );
 }
 ```
 
 These utilities, `clsx` or `classnames`, make it easier to handle and express conditional classes.
 
-```javascript title="Button.jsx" ins={8-12}
+```jsx title="Button.jsx" ins={8-12}
 import React, { useState } from "react";
 import classNames from "classnames";
 
 export default function Button(props) {
-	const [isPressed, setIsPressed] = useState(false);
-	const [isHovered, setIsHovered] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-	const btnClass = classNames({
-		btn: true,
-		"btn-pressed": isPressed,
-		"btn-over": !isPressed && isHovered,
-	});
+  const btnClass = classNames({
+    btn: true,
+    "btn-pressed": isPressed,
+    "btn-over": !isPressed && isHovered,
+  });
 
-	return (
-		<button
-			className={btnClass}
-			onMouseDown={() => setIsPressed(true)}
-			onMouseUp={() => setIsPressed(false)}
-			onMouseEnter={() => setIsHovered(true)}
-			onMouseLeave={() => setIsHovered(false)}
-		>
-			{props.label}
-		</button>
-	);
+  return (
+    <button
+      className={btnClass}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {props.label}
+    </button>
+  );
 }
+
 ```
 
 Both utilities share something with `cva`: they make styling components easier. But where `cva` handles broad, variant-based styling, these utilities shine in handling the _state_ and _interactive_ styles of a component. We can think of _state styles_ as those applied in response to a state change in the component, like a loading state triggered off some asynchronous request. While _interactive styles_ are those native to an element like whether it is pressed or disabled.
@@ -293,9 +301,9 @@ Even with the example above, we don’t need a class to handle `isPressed` for t
 
 Adding `clsx` to my Tag component:
 
-```javascript title="Tag.astro"
+```jsx title="Tag.astro"
 <span class={twMerge(clsx(tag({ size, variant })))}>
-	<slot />
+  <slot />
 </span>
 ```
 
@@ -303,47 +311,47 @@ And to recap on the evolution of this Tag component:
 
 1. `cva` allows me handle for variant styling in a no-fuss, scalable way:
 
-```javascript title="Tag.astro"
-<span class={tag({ size, variant })>
-	<slot />
+```jsx title="Tag.astro"
+<span class={tag({ size, variant })}>
+  <slot />
 </span>
 ```
 
 2. `tailwind merge` takes the output of `cva`, a string, and resolves conflicts in class names:
 
-```javascript title="Tag.astro"
-<span class={twMerge('px-2 py-1 p-3')> // only p-3 is applied
-	<slot />
-</span>
+```jsx title="Tag.astro"
+<span class={twMerge("px-2 py-1 p-3")}> // only p-3 is applied
+  <slot />
+</span>;
 ```
 
 3. `clsx` makes for easier conditional, prop driven styling if I ever need it:
 
-```javascript title="Tag.astro"
+```jsx title="Tag.astro"
 <span
-	class={twMerge(
-		clsx("p-3 px-2 py-1", {
-			"animate bg-blue-50": isLoading,
-		}),
-	)}
+  class={twMerge(
+    clsx("p-3 px-2 py-1", {
+      "animate bg-blue-50": isLoading,
+    })
+  )}
 >
-	<slot />
+  <slot />
 </span>
 ```
 
 Though I thought this could be more readable, and I liked how [ShadCN solved this](https://github.com/shadcn-ui/ui/blob/main/apps/www/lib/utils.ts):
 
-```javascript title="Tag.astro"
+```jsx title="Tag.astro"
 <span class={className(tag({ size, variant }))}>
-	<slot />
+  <slot />
 </span>
 ```
 
 Where `className` is a utility combining `twMerge` and `clsx`.
 
-```javascript title="Tag.astro"
+```typescript title="Tag.astro"
 function className(...inputs: ClassValue[]) {
-	return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs));
 }
 ```
 
@@ -351,7 +359,7 @@ function className(...inputs: ClassValue[]) {
 
 This is my Tag component.
 
-```javascript title="Tag.astro"
+```astro title="Tag.astro"
 ---
 import type { HTMLAttributes } from "astro/types";
 import type { ClassValue } from "clsx";
@@ -361,34 +369,40 @@ import { type VariantProps, cva } from "cva";
 import { twMerge } from "tailwind-merge";
 
 function className(...inputs: ClassValue[]) {
-	return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs));
 }
 
 const tag = cva(
-	"text-red-500 inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-	{
-		compoundVariants: [{ class: "uppercase", size: "medium", variant: "primary" }],
-		variants: {
-			size: {
-				medium: ["text-base", "py-2", "px-4"],
-				small: ["text-sm", "py-1", "px-2"],
-			},
-			variant: {
-				accent: "text-fgColour-accent border-fgColour-accent shadow hover:text-fgColour-accent/60",
-				primary:
-					"text-fgColour-default border-fgColour-default shadow hover:text-fgColour-default/60",
-				secondary: "text-fgColour-muted border-fgColour-muted shadow hover:text-fgColour-muted/60",
-			},
-		},
-	}
+  "text-red-500 inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  {
+    compoundVariants: [
+      { class: "uppercase", size: "medium", variant: "primary" },
+    ],
+    variants: {
+      size: {
+        medium: ["text-base", "py-2", "px-4"],
+        small: ["text-sm", "py-1", "px-2"],
+      },
+      variant: {
+        accent:
+          "text-fgColour-accent border-fgColour-accent shadow hover:text-fgColour-accent/60",
+        primary:
+          "text-fgColour-default border-fgColour-default shadow hover:text-fgColour-default/60",
+        secondary:
+          "text-fgColour-muted border-fgColour-muted shadow hover:text-fgColour-muted/60",
+      },
+    },
+  }
 );
 
-export interface TagProps extends HTMLAttributes<"span">, VariantProps<typeof tag> {}
+export interface TagProps
+  extends HTMLAttributes<"span">,
+    VariantProps<typeof tag> {}
 
 const { size = "medium", variant = "primary" } = Astro.props;
 ---
 
 <span class={className(tag({ size, variant }))}>
-	<slot />
+  <slot />
 </span>
 ```

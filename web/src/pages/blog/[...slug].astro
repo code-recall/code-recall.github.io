@@ -1,5 +1,7 @@
 ---
+import Tags from '@/components/Tags.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogPostLayout from '@/layouts/BlogPostLayout.astro'
 import type { GetStaticPaths } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 import { getCollection } from 'astro:content'
@@ -19,27 +21,64 @@ export const getStaticPaths = (async () => {
 
 const { post } = Astro.props
 const { Content } = await post.render()
+const pubDate = post.data.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+})
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <a href="/blog" class="button-link">Back</a>
-
-  <article>
+  <div class="post-header">
     <h1>{post.data.title}</h1>
-    <p>Author: {post.data.author}</p>
 
+    <div class="post-meta">
+      <div class="post-authorship">
+        <p>{post.data.author}</p>
+        <time>{pubDate}</time>
+      </div>
+      <Tags tags={post.data.tags} />
+    </div>
+
+    <p>{post.data.description}</p>
+  </div>
+
+  <BlogPostLayout>
     <Content />
-  </article>
+  </BlogPostLayout>
 </BaseLayout>
 
 <style>
-  .button-link {
-    display: inline-block;
-    margin-bottom: 1em;
-    font-size: 22px;
-    background-color: lightblue;
-    padding: 0.5em 1em;
-    border-radius: 0.5em;
-    margin: 0.5em 0;
+  .post-header {
+    margin-bottom: var(--space-2xl);
+
+    & h1 {
+      margin-bottom: var(--space-m);
+    }
+  }
+
+  .post-meta {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-m);
+  }
+
+  .post-authorship {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+
+    & p {
+      font-weight: bold;
+      margin: 0;
+      font-size: var(--step--1);
+    }
+
+    & time {
+      color: darkgray;
+      font-size: var(--step--1);
+    }
   }
 </style>

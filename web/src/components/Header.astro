@@ -14,7 +14,7 @@ const pathname = new URL(Astro.request.url).pathname
 ---
 
 <header>
-  <nav>
+  <nav class="container">
     <a href="/">🏠</a>
 
     <ul class="nav-menu">
@@ -39,7 +39,6 @@ const pathname = new URL(Astro.request.url).pathname
   }
 
   nav {
-    max-width: 800px;
     display: flex;
     justify-content: space-between;
     align-items: center;

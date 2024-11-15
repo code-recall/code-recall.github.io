@@ -1,6 +1,6 @@
 ---
-import ReadingListTable from '@/components/ReadingListTable.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import ReadingListTable from '@/components/ReadingListTable.astro'
 import { getCollection } from 'astro:content'
 
 const readingListDateDescending = await getCollection('reading-list').then((res) =>

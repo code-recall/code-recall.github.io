@@ -1,23 +1,19 @@
 ---
-import Card from '@/components/Card.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import PostPreview from '@/components/PostPreview.astro'
 import { getCollection } from 'astro:content'
 
 const posts = await getCollection('blog')
 ---
 
 <BaseLayout title="Blog">
-  <h1>Blog</h1>
-
-  <div class="content">
-    <ul class="cards">
-      {
-        posts.map((post) => (
-          <li>
-            <Card post={post} />
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+  <ul class="cards">
+    {
+      posts.map((post) => (
+        <li>
+          <PostPreview post={post} />
+        </li>
+      ))
+    }
+  </ul>
 </BaseLayout>

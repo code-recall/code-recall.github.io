@@ -1,0 +1,19 @@
+@import '@fontsource/merriweather';
+@import './reset.css';
+@import './variables.css';
+@import './typeography.css';
+
+body {
+  font-family: 'Merriweather', serif;
+}
+
+.container {
+  width: 100%;
+  padding: var(--space-s);
+  max-width: 800px;
+  margin-inline: auto;
+
+  @media screen and (min-width: 800px) {
+    padding: var(--space-m);
+  }
+}

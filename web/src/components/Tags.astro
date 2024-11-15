@@ -1,0 +1,28 @@
+---
+export type Props = {
+  tags: string[] | undefined
+}
+
+const { tags } = Astro.props
+
+if (!tags?.length) return null
+---
+
+<ul>
+  {tags.map((tag) => <li>{tag}</li>)}
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    gap: var(--space-xs);
+  }
+
+  ul li {
+    background-color: lightblue;
+    padding: var(--space-2xs);
+    font-size: var(--step--1);
+    border-radius: 0.5em;
+    color: black;
+  }
+</style>

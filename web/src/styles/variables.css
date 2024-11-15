@@ -1,4 +1,10 @@
 :root {
+  --color-100: hsl(208 64.8% 51%);
+  --color-200: hsl(204 53.9% 60%);
+  --color-300: hsl(183 53.4% 79.8%);
+  --color-400: hsl(10 30% 96.1%);
+  --color-500: hsl(341 89.7% 69.4%);
+
   --gutter: var(--space-s-m);
   --border-radius: var(--size-step-1);
   --transition-base: 250ms ease;

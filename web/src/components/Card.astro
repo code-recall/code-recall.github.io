@@ -8,7 +8,7 @@ export interface Props {
 const { post } = Astro.props
 ---
 
-<a href={`/blog/${post.slug.split('/').at(1)}`} class="card">
+<a href={`/blog/${post.slug.split('/').at(1)}`} class="post">
   <article>
     <p class="meta">
       <span>{post.data.author}</span>
@@ -35,17 +35,20 @@ const { post } = Astro.props
 
     <p class="title">{post.data.title}</p>
     <p class="description">{post.data.description}</p>
+
+    <button
+      >Read more
+      <span>⚫️</span>
+    </button>
   </article>
 </a>
 
 <style>
-  .card {
+  .post {
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: block;
-    padding: 32px 16px;
-    border-radius: 8px;
+    margin-bottom: var(--space-2xl);
 
     & article {
       display: flex;
@@ -56,15 +59,15 @@ const { post } = Astro.props
 
   .meta {
     display: flex;
-    font-size: 16px;
     gap: var(--space-xs);
+    margin-bottom: var(--space-xs);
 
     & span {
       font-weight: bold;
     }
 
     & time {
-      color: gray;
+      color: darkgray;
     }
   }
 
@@ -73,10 +76,38 @@ const { post } = Astro.props
     gap: var(--space-xs);
 
     & li {
-      background-color: lightblue;
-      padding: 4px 8px;
+      background-color: black;
+      color: white;
+      padding: var(--space-3xs) var(--space-2xs);
       border-radius: 4px;
-      font-size: 12px;
+      font-size: var(--step--1);
+    }
+  }
+
+  .post button {
+    display: flex;
+    width: fit-content;
+    background-color: white;
+    border: none;
+    padding: 0;
+    margin-top: var(--space-xs);
+    font-weight: bold;
+
+    & span {
+      margin-left: var(--space-xs);
+      transition-timing-function: ease-in;
+      transition: 0.3s;
+      text-decoration-color: transparent;
+      color: transparent;
+    }
+  }
+
+  .post:hover {
+    & meta span {
+      text-decoration: underline;
+    }
+    & button span {
+      color: inherit;
     }
   }
 </style>

@@ -17,3 +17,46 @@ body {
     padding: var(--space-m);
   }
 }
+
+.flow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.flow > * {
+  margin-block: 0;
+}
+
+.flow > * + * {
+  margin-block-start: var(--space-l, 1em);
+}
+
+/* More generic elements */
+blockquote:not([class]) {
+  font-family: var(--font-serif);
+  background-color: rgba(0, 0, 0, 0.025);
+  padding: var(--space-m-l) 0 var(--space-m-l) var(--space-l);
+}
+
+/* Markdown blockquuote:not([class])s aren't ideal, so we're presuming the person quoted is the last p */
+blockquote:not([class]) p:last-of-type {
+  font-family: var(--font-serif);
+  font-weight: normal;
+}
+
+blockquote ul {
+  margin-left: var(--space-m-l);
+  padding: var(--space-l);
+  list-style: inherit;
+}
+
+blockquote ol {
+  margin-left: var(--space-m-l);
+  padding: var(--space-l);
+  list-style: inherit;
+}
+
+blockquote p {
+  margin-block-start: var(--space-l, 1em);
+}

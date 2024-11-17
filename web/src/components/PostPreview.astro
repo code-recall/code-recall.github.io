@@ -9,7 +9,7 @@ export interface Props {
 const { post } = Astro.props
 ---
 
-<a href={`/blog/${post.slug.split('/').at(1)}`} class="post-preview">
+<a href={`/blog/${post.slug.split('/').at(1)}`} class="post-preview flow">
   <span>
     <h5>{post.data.title}</h5>
     <p>

@@ -29,7 +29,7 @@ const pubDate = post.data.pubDate.toLocaleDateString('en-US', {
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <div class="post-header">
+  <div class="post-details flow">
     <h1>{post.data.title}</h1>
 
     <div class="post-meta">
@@ -49,12 +49,8 @@ const pubDate = post.data.pubDate.toLocaleDateString('en-US', {
 </BaseLayout>
 
 <style>
-  .post-header {
+  .post-details {
     margin-bottom: var(--space-2xl);
-
-    & h1 {
-      margin-bottom: var(--space-m);
-    }
   }
 
   .post-meta {
@@ -62,7 +58,6 @@ const pubDate = post.data.pubDate.toLocaleDateString('en-US', {
     gap: var(--space-xs);
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--space-m);
   }
 
   .post-authorship {

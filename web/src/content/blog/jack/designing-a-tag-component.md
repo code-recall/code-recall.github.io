@@ -290,7 +290,6 @@ export default function Button(props) {
     </button>
   );
 }
-
 ```
 
 Both utilities share something with `cva`: they make styling components easier. But where `cva` handles broad, variant-based styling, these utilities shine in handling the _state_ and _interactive_ styles of a component. We can think of _state styles_ as those applied in response to a state change in the component, like a loading state triggered off some asynchronous request. While _interactive styles_ are those native to an element like whether it is pressed or disabled.
@@ -322,7 +321,7 @@ And to recap on the evolution of this Tag component:
 ```jsx title="Tag.astro"
 <span class={twMerge("px-2 py-1 p-3")}> // only p-3 is applied
   <slot />
-</span>;
+</span>
 ```
 
 3. `clsx` makes for easier conditional, prop driven styling if I ever need it:

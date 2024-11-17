@@ -2,4 +2,24 @@
 const currentYear = new Date().getFullYear()
 ---
 
-<footer class="container">&copy; Copyright <span set:text={currentYear} /></footer>
+<footer>
+  <div class="container footer-content">
+    <p>
+      &copy; Copyright
+      <span set:text={currentYear} />
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid lightgray;
+    height: 160px;
+  }
+
+  .footer-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+</style>

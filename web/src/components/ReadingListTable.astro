@@ -19,7 +19,7 @@ const { date } = Astro.props
 
 <style is:global>
   .reading-list-table {
-    margin-bottom: var(--space-2xl);
+    margin: var(--space-2xl) 0;
 
     & h4 {
       margin-bottom: var(--space-m);
@@ -34,13 +34,12 @@ const { date } = Astro.props
 
     & :is(td, th) {
       border-style: solid;
-      padding: 0.5ch 1ch;
+      padding: var(--space-2xs);
       border-color: darkgray;
-      padding: 2ch;
     }
 
     & tr:nth-of-type(odd):not(:only-child) {
-      background: #f2f2f2;
+      background: rgba(0, 0, 0, 0.05);
     }
 
     & td:nth-of-type(n + 3) {

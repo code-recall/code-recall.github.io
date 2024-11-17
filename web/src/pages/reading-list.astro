@@ -11,16 +11,14 @@ const readingListDateDescending = await getCollection('reading-list').then((res)
 <BaseLayout title="Reading List">
   <h1>Reading List</h1>
 
-  <div class="content">
-    {
-      readingListDateDescending.map(async (item) => {
-        const { Content } = await item.render()
-        return (
-          <ReadingListTable date={item.data.pubDate}>
-            <Content />
-          </ReadingListTable>
-        )
-      })
-    }
-  </div>
+  {
+    readingListDateDescending.map(async (item) => {
+      const { Content } = await item.render()
+      return (
+        <ReadingListTable date={item.data.pubDate}>
+          <Content />
+        </ReadingListTable>
+      )
+    })
+  }
 </BaseLayout>

@@ -9,7 +9,6 @@ export default defineConfig({
     shikiConfig: {
       theme: 'dracula',
     },
-    // remarkPlugins: ['remarkToc'],
     remarkPlugins: ['remark-code-titles'],
     rehypePlugins: [
       'rehype-slug',

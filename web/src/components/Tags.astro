@@ -8,7 +8,7 @@ const { tags } = Astro.props
 if (!tags?.length) return null
 ---
 
-<ul>
+<ul role="list">
   {tags.map((tag) => <li>{tag}</li>)}
 </ul>
 

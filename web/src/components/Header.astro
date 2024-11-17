@@ -1,10 +1,6 @@
 ---
 const siteLinks = [
   {
-    href: '/blog',
-    title: 'Blog',
-  },
-  {
     href: '/reading-list',
     title: 'Reading list',
   },
@@ -15,7 +11,7 @@ const pathname = new URL(Astro.request.url).pathname
 
 <header>
   <nav class="container">
-    <a href="/">🏠</a>
+    <a href="/" class="logo">Code Recall</a>
 
     <ul class="nav-menu">
       {
@@ -31,11 +27,18 @@ const pathname = new URL(Astro.request.url).pathname
   </nav>
 </header>
 
-<style scoped>
+<style>
   header {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+
+  .logo {
+    font-size: var(--step-1);
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
   }
 
   nav {

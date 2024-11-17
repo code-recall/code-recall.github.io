@@ -1,9 +1,19 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import PostPreview from '@/components/PostPreview.astro'
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('blog')
 ---
 
 <BaseLayout title="Home">
-  <h1>Home</h1>
-
-  <p>No idea what will go here...</p>
+  <ul role="list">
+    {
+      posts.map((post) => (
+        <li role="listitem">
+          <PostPreview post={post} />
+        </li>
+      ))
+    }
+  </ul>
 </BaseLayout>

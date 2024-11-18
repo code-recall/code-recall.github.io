@@ -9,7 +9,7 @@ const readingListDateDescending = await getCollection('reading-list').then((res)
 ---
 
 <BaseLayout title="Reading List">
-  <h1>Reading List</h1>
+  <h1 class="mb-12 text-3xl">Reading List</h1>
 
   {
     readingListDateDescending.map(async (item) => {

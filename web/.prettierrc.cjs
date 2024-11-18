@@ -8,8 +8,10 @@ module.exports = {
   useTabs: false,
   semi: false,
   singleQuote: true,
-  trailingComma: "es5",
+  trailingComma: 'es5',
   bracketSpacing: true,
   jsxBracketSameLine: false,
-  arrowParens: "always",
-};
+  arrowParens: 'always',
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+  pluginSearchDirs: false,
+}

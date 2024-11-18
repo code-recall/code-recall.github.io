@@ -1,20 +1,30 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import Tags from './Tags.astro'
+import type { HTMLAttributes } from 'astro/types'
 
-export interface Props {
+export interface Props extends HTMLAttributes<'a'> {
   post: CollectionEntry<'blog'>
 }
 
-const { post } = Astro.props
+const { post, class: className, ...rest } = Astro.props
+
+console.log(className)
 ---
 
-<a href={`/blog/${post.slug.split('/').at(1)}`} class="post-preview flow">
-  <span>
-    <h5>{post.data.title}</h5>
-    <p>
+<a
+  href={`/blog/${post.slug.split('/').at(1)}`}
+  class:list={[
+    'mb-8 flex cursor-pointer flex-col rounded-lg p-8 shadow-md transition-all duration-300 ease-in-out hover:shadow-lg',
+    className,
+  ]}
+  {...rest}
+>
+  <span class="mb-6 flex items-center justify-between">
+    <h5 class="text-xl">{post.data.title}</h5>
+    <p class="text-sm">
       <span>{post.data.author}</span>
-      <time>
+      <time class="text-gray-500">
         {
           post.data.pubDate.toLocaleDateString('en-US', {
             year: 'numeric',
@@ -26,39 +36,7 @@ const { post } = Astro.props
     </p>
   </span>
 
-  <p class="description">{post.data.description}</p>
+  <p class="mb-6">{post.data.description}</p>
+
   <Tags tags={post.data.tags} />
 </a>
-
-<style scoped>
-  .post-preview {
-    display: flex;
-    flex-direction: column;
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: var(--space-l);
-    gap: var(--space-m);
-    text-decoration: none;
-    margin-bottom: var(--space-xl);
-    color: black;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      box-shadow:
-        0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-
-    & > span {
-      display: flex;
-      flex-direction: column;
-    }
-
-    & h5 {
-      margin: 0;
-    }
-  }
-</style>

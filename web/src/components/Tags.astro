@@ -9,25 +9,23 @@ const { tags, links } = Astro.props
 if (!tags?.length) return null
 ---
 
-<ul role="list">
+<ul role="list" class="flex list-none gap-x-3 text-sm">
   {
     tags.map((tag) => {
-      return <li>{links ? <a href={`/tag/${tag.toLowerCase()}`}>{tag}</a> : tag}</li>
+      return (
+        <li
+          class="rounded-md bg-blue-400/40 transition-colors duration-300"
+          class:list={{ 'p-2': !links, 'hover:bg-blue-400/30': links }}
+        >
+          {links ? (
+            <a href={`/tag/${tag.toLowerCase()}`} class="block w-fit" class:list={{ 'p-2': links }}>
+              {tag}
+            </a>
+          ) : (
+            tag
+          )}
+        </li>
+      )
     })
   }
 </ul>
-
-<style>
-  ul {
-    display: flex;
-    gap: var(--space-xs);
-  }
-
-  ul li {
-    background-color: lightblue;
-    padding: var(--space-2xs);
-    font-size: var(--step--1);
-    border-radius: 0.5em;
-    color: black;
-  }
-</style>

@@ -3,7 +3,7 @@ title: 'Designing a tag component'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: '10/21/2024'
 author: 'Jack Morris'
-tags: 
+tags:
   - React
   - Tailwind
   - Frontend
@@ -37,29 +37,29 @@ For me, my secondary colour is red. So, I need to introduce this into my design 
 const baseColourTokens = {
   red: {
     // bgColour utilities
-    50: "hsl(var(--base-colour-red-50) / <alpha-value>)",
-    100: "hsl(var(--base-colour-red-100) / <alpha-value>)",
-    200: "hsl(var(--base-colour-red-200) / <alpha-value>)",
-    300: "hsl(var(--base-colour-red-300) / <alpha-value>)",
-    400: "hsl(var(--base-colour-red-400) / <alpha-value>)",
+    50: 'hsl(var(--base-colour-red-50) / <alpha-value>)',
+    100: 'hsl(var(--base-colour-red-100) / <alpha-value>)',
+    200: 'hsl(var(--base-colour-red-200) / <alpha-value>)',
+    300: 'hsl(var(--base-colour-red-300) / <alpha-value>)',
+    400: 'hsl(var(--base-colour-red-400) / <alpha-value>)',
     // borderColour utilities
-    500: "hsl(var(--base-colour-red-500) / <alpha-value>)",
-    600: "hsl(var(--base-colour-red-600) / <alpha-value>)",
-    700: "hsl(var(--base-colour-red-700) / <alpha-value>)",
+    500: 'hsl(var(--base-colour-red-500) / <alpha-value>)',
+    600: 'hsl(var(--base-colour-red-600) / <alpha-value>)',
+    700: 'hsl(var(--base-colour-red-700) / <alpha-value>)',
     // fgColour utilities
-    800: "hsl(var(--base-colour-red-800) / <alpha-value>)",
-    900: "hsl(var(--base-colour-red-900) / <alpha-value>)",
-    950: "hsl(var(--base-colour-red-950) / <alpha-value>)",
+    800: 'hsl(var(--base-colour-red-800) / <alpha-value>)',
+    900: 'hsl(var(--base-colour-red-900) / <alpha-value>)',
+    950: 'hsl(var(--base-colour-red-950) / <alpha-value>)',
   },
-};
+}
 ```
 
 I then exposed this red as a functional colour token following Primer's pattern of semantically naming the role that it is associated with. I thought it more sensible to follow Primer's approach to declaring this accent colour as a semantically named _accent_ rather than introducing it as a _secondary_ colour and having its role obscured.
 
 ```typescript title="designToken.ts"
 export const functionalColourTokens = {
-  ["fgColour-accent"]: baseColourTokens.red["950"],
-};
+  ['fgColour-accent']: baseColourTokens.red['950'],
+}
 ```
 
 ### Naming The Component
@@ -139,24 +139,21 @@ Using the ShadCN Badge example, cva (Class Variance Authority) is a utility that
 
 ```typescript title="shadcn-badge-component.ts"
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  'inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
   {
     variants: {
       variant: {
-        default:
-          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-        outline: "text-foreground",
+        default: 'border-transparent bg-primary text-primary-foreground hover:bg-primary/80',
+        secondary: 'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',
+        destructive: 'border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80',
+        outline: 'text-foreground',
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: 'default',
     },
   }
-);
+)
 ```
 
 I also found this resource from [Coding in Public](https://www.youtube.com/watch?v=kHQNK2jU_TQ&t=895s) to be really helpful:
@@ -165,43 +162,35 @@ This is my Tag component using the Class Variance Authority library. I wrote it 
 
 ```astro title="Tag.astro"
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types'
 
-import { type VariantProps, cva } from "cva";
+import { type VariantProps, cva } from 'cva'
 
 const tag = cva(
-  "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  'inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
   {
-    compoundVariants: [
-      { class: "uppercase", size: "medium", variant: "primary" },
-    ],
+    compoundVariants: [{ class: 'uppercase', size: 'medium', variant: 'primary' }],
     variants: {
       size: {
-        medium: ["text-base", "py-2", "px-4"],
-        small: ["text-sm", "py-1", "px-2"],
+        medium: ['text-base', 'py-2', 'px-4'],
+        small: ['text-sm', 'py-1', 'px-2'],
       },
       variant: {
-        accent:
-          "text-fgColour-accent border-fgColour-accent shadow hover:text-fgColour-accent/60",
-        primary:
-          "text-fgColour-default border-fgColour-default shadow hover:text-fgColour-default/60",
-        secondary:
-          "text-fgColour-muted border-fgColour-muted shadow hover:text-fgColour-muted/60",
+        accent: 'text-fgColour-accent border-fgColour-accent shadow hover:text-fgColour-accent/60',
+        primary: 'text-fgColour-default border-fgColour-default shadow hover:text-fgColour-default/60',
+        secondary: 'text-fgColour-muted border-fgColour-muted shadow hover:text-fgColour-muted/60',
       },
     },
   }
-);
+)
 
-export interface TagProps
-  extends HTMLAttributes<"span">,
-    VariantProps<typeof tag> {}
+export interface TagProps extends HTMLAttributes<'span'>, VariantProps<typeof tag> {}
 
 /**
  * For Astro components, we recommend setting your defaultVariants within
  * Astro.props (which are `undefined` by default)
  */
-const { size = "medium", variant = "primary" } = Astro.props;
-
+const { size = 'medium', variant = 'primary' } = Astro.props
 ---
 
 <span class={tag({ size, variant })}>
@@ -216,7 +205,7 @@ But I wasn't finished. Both the Coding in Public video and ShadCN made use of tw
 [Tailwind Merge](https://www.npmjs.com/package/tailwind-merge) is a library that, amongst other things, removes conflicting classes. It loads only the classes that legitimately affect an element's style. It follows the classic CSS convention of letting classes listed lower in the stylesheet take priority. Using the example below, className would evaluate as `p-3` because `px-2` and `py-1` are ignored as styles.
 
 ```jsx
-<div className={twMerge("px-2 py-1", "p-3")} />
+<div className={twMerge('px-2 py-1', 'p-3')} />
 ```
 
 Adding `twMerge` to my example:
@@ -238,15 +227,15 @@ As mentioned, `clsx` is a utility for conditionally constructing classnames. It 
 > [classnames README](https://github.com/JedWatson/classnames?tab=readme-ov-file#usage-with-reactjs)
 
 ```jsx title="Button.jsx"
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 export default function Button(props) {
-  const [isPressed, setIsPressed] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isPressed, setIsPressed] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
-  let btnClass = "btn";
-  if (isPressed) btnClass += " btn-pressed";
-  else if (isHovered) btnClass += " btn-over";
+  let btnClass = 'btn'
+  if (isPressed) btnClass += ' btn-pressed'
+  else if (isHovered) btnClass += ' btn-over'
 
   return (
     <button
@@ -258,25 +247,25 @@ export default function Button(props) {
     >
       {props.label}
     </button>
-  );
+  )
 }
 ```
 
 These utilities, `clsx` or `classnames`, make it easier to handle and express conditional classes.
 
 ```jsx title="Button.jsx" ins={8-12}
-import React, { useState } from "react";
-import classNames from "classnames";
+import React, { useState } from 'react'
+import classNames from 'classnames'
 
 export default function Button(props) {
-  const [isPressed, setIsPressed] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isPressed, setIsPressed] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   const btnClass = classNames({
     btn: true,
-    "btn-pressed": isPressed,
-    "btn-over": !isPressed && isHovered,
-  });
+    'btn-pressed': isPressed,
+    'btn-over': !isPressed && isHovered,
+  })
 
   return (
     <button
@@ -288,7 +277,7 @@ export default function Button(props) {
     >
       {props.label}
     </button>
-  );
+  )
 }
 ```
 
@@ -319,7 +308,9 @@ And to recap on the evolution of this Tag component:
 2. `tailwind merge` takes the output of `cva`, a string, and resolves conflicts in class names:
 
 ```jsx title="Tag.astro"
-<span class={twMerge("px-2 py-1 p-3")}> // only p-3 is applied
+<span class={twMerge('p-3 px-2 py-1')}>
+  {' '}
+  // only p-3 is applied
   <slot />
 </span>
 ```
@@ -329,8 +320,8 @@ And to recap on the evolution of this Tag component:
 ```jsx title="Tag.astro"
 <span
   class={twMerge(
-    clsx("p-3 px-2 py-1", {
-      "animate bg-blue-50": isLoading,
+    clsx('p-3 px-2 py-1', {
+      'animate bg-blue-50': isLoading,
     })
   )}
 >
@@ -350,7 +341,7 @@ Where `className` is a utility combining `twMerge` and `clsx`.
 
 ```typescript title="Tag.astro"
 function className(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs))
 }
 ```
 
@@ -360,45 +351,38 @@ This is my Tag component.
 
 ```astro title="Tag.astro"
 ---
-import type { HTMLAttributes } from "astro/types";
-import type { ClassValue } from "clsx";
+import type { HTMLAttributes } from 'astro/types'
+import type { ClassValue } from 'clsx'
 
-import { clsx } from "clsx";
-import { type VariantProps, cva } from "cva";
-import { twMerge } from "tailwind-merge";
+import { clsx } from 'clsx'
+import { type VariantProps, cva } from 'cva'
+import { twMerge } from 'tailwind-merge'
 
 function className(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs))
 }
 
 const tag = cva(
-  "text-red-500 inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  'text-red-500 inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
   {
-    compoundVariants: [
-      { class: "uppercase", size: "medium", variant: "primary" },
-    ],
+    compoundVariants: [{ class: 'uppercase', size: 'medium', variant: 'primary' }],
     variants: {
       size: {
-        medium: ["text-base", "py-2", "px-4"],
-        small: ["text-sm", "py-1", "px-2"],
+        medium: ['text-base', 'py-2', 'px-4'],
+        small: ['text-sm', 'py-1', 'px-2'],
       },
       variant: {
-        accent:
-          "text-fgColour-accent border-fgColour-accent shadow hover:text-fgColour-accent/60",
-        primary:
-          "text-fgColour-default border-fgColour-default shadow hover:text-fgColour-default/60",
-        secondary:
-          "text-fgColour-muted border-fgColour-muted shadow hover:text-fgColour-muted/60",
+        accent: 'text-fgColour-accent border-fgColour-accent shadow hover:text-fgColour-accent/60',
+        primary: 'text-fgColour-default border-fgColour-default shadow hover:text-fgColour-default/60',
+        secondary: 'text-fgColour-muted border-fgColour-muted shadow hover:text-fgColour-muted/60',
       },
     },
   }
-);
+)
 
-export interface TagProps
-  extends HTMLAttributes<"span">,
-    VariantProps<typeof tag> {}
+export interface TagProps extends HTMLAttributes<'span'>, VariantProps<typeof tag> {}
 
-const { size = "medium", variant = "primary" } = Astro.props;
+const { size = 'medium', variant = 'primary' } = Astro.props
 ---
 
 <span class={className(tag({ size, variant }))}>

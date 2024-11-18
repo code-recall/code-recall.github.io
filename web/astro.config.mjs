@@ -2,6 +2,8 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 
+import tailwind from '@astrojs/tailwind'
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://code-recall.github.io',
@@ -16,5 +18,5 @@ export default defineConfig({
       ['rehype-toc', { headings: ['h2', 'h3'] }],
     ],
   },
-  integrations: [mdx()],
+  integrations: [mdx(), tailwind()],
 })

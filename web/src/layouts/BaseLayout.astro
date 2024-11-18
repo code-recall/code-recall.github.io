@@ -1,5 +1,5 @@
 ---
-import '@/styles/main.css'
+import '@/styles/index.css'
 
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
@@ -25,29 +25,13 @@ const { title, description } = Astro.props
 
     <ViewTransitions />
   </head>
-  <body>
+  <body class="flex h-screen flex-col">
     <Header />
 
-    <main class="container">
+    <main class="container flex-1 flex-grow">
       <slot />
     </main>
 
     <Footer />
   </body>
 </html>
-
-<style is:global>
-  body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
-
-  footer {
-    flex-shrink: 0;
-  }
-</style>

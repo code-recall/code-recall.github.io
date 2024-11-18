@@ -3,7 +3,7 @@ const { date } = Astro.props
 ---
 
 <div class="reading-list-table">
-  <h4>
+  <h4 class="mb-6 text-2xl">
     Week of{' '}
     {
       new Date(date).toLocaleDateString('en-GB', {
@@ -18,41 +18,43 @@ const { date } = Astro.props
 </div>
 
 <style is:global>
-  .reading-list-table {
-    margin: var(--space-2xl) 0;
-
-    & h4 {
-      margin-bottom: var(--space-m);
-    }
+  .reading-list-table table {
+    @apply mb-12 w-full border-collapse border-spacing-1;
   }
 
-  .reading-list-table table {
-    border-collapse: collapse;
-    text-indent: initial;
-    border-spacing: 2px;
-    width: 100%;
+  .reading-list-table table :is(td, th) {
+    @apply border border-black/20 p-3;
+  }
 
-    & :is(td, th) {
-      border-style: solid;
-      padding: var(--space-2xs);
-      border-color: darkgray;
-    }
+  .reading-list-table table tr:nth-of-type(odd):not(:only-child) {
+    @apply bg-gray-50;
+  }
 
-    & tr:nth-of-type(odd):not(:only-child) {
-      background: rgba(0, 0, 0, 0.05);
-    }
+  .reading-list-table table td:nth-of-type(2) {
+    @apply text-center;
+  }
 
-    & td:nth-of-type(n + 3) {
-      text-align: center;
-    }
+  .reading-list-table table td:nth-of-type(n + 3) {
+    @apply text-center;
+  }
+  .reading-list-table table td:first-of-type,
+  .reading-list-table table th:first-of-type {
+    @apply max-w-[200px];
+  }
 
-    & td:first-of-type,
-    & th:first-of-type {
-      max-width: 200px;
-    }
+  .reading-list-table table td:nth-of-type(2) {
+    @apply max-w-[100px];
+  }
 
-    & td:nth-of-type(2) {
-      max-width: 60px;
-    }
+  .reading-list-table a {
+    @apply underline decoration-transparent transition-colors duration-300 hover:decoration-black aria-[current=page]:decoration-black;
   }
 </style>
+
+<script>
+  const links = document.querySelectorAll('.reading-list-table a')
+
+  links.forEach((link) => {
+    link.setAttribute('target', '_blank')
+  })
+</script>

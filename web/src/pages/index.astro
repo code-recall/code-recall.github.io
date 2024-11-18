@@ -10,7 +10,7 @@ const posts = await getCollection('blog')
   <ul role="list">
     {
       posts.map((post) => (
-        <li role="listitem">
+        <li>
           <PostPreview post={post} />
         </li>
       ))

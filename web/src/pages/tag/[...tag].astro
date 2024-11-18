@@ -23,17 +23,15 @@ const { posts } = Astro.props
 ---
 
 <BaseLayout title="Home">
-  <div class="flow">
-    <p>Posts tagged with: {tag}</p>
+  <h3 class="mb-12">Posts tagged with: <span class="text-orange-400">{tag}</span></h3>
 
-    <ul role="list">
-      {
-        posts.map((post) => (
-          <li role="listitem">
-            <PostPreview post={post} />
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+  <ul role="list">
+    {
+      posts.map((post) => (
+        <li role="listitem">
+          <PostPreview post={post} />
+        </li>
+      ))
+    }
+  </ul>
 </BaseLayout>

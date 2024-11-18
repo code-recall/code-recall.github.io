@@ -1,6 +1,7 @@
 ---
-import Tags from '@/components/Tags.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import Tags from '@/components/Tags.astro'
+import PostMeta from '@/components/PostMeta.astro'
 import BlogPostLayout from '@/layouts/BlogPostLayout.astro'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 import { getCollection } from 'astro:content'
@@ -9,35 +10,28 @@ export const getStaticPaths = (async () => {
   const posts = await getCollection('blog')
 
   return posts.map((post) => ({
-    params: { slug: post.slug.split('/').at(1) },
-    props: { post },
+    params: { slug: post.slug.split('/').at(1)?.toLowerCase() },
+    props: {
+      title: post.data.title,
+      author: post.data.author,
+      pubDate: post.data.pubDate,
+      description: post.data.description,
+      tags: post.data.tags,
+      post,
+    },
   }))
 }) satisfies GetStaticPaths
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
-const { post } = Astro.props
+const { title, author, pubDate, description, tags, post } = Astro.props
 const { Content } = await post.render()
-const pubDate = post.data.pubDate.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-})
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
-  <div class="mb-6">
-    <h1>{post.data.title}</h1>
-    <div class="flex items-center justify-between">
-      <div class="inline-flex items-center gap-2 text-sm">
-        <p class="font-semibold">{post.data.author}</p>
-        <time class="text-gray-500">{pubDate}</time>
-      </div>
-      <Tags links={true} tags={post.data.tags} />
-    </div>
-
-    <p>{post.data.description}</p>
-  </div>
+<BaseLayout title={title} description={description}>
+  <PostMeta title={title} author={author} pubDate={pubDate} description={description}>
+    <Tags tags={tags} links />
+  </PostMeta>
 
   <BlogPostLayout>
     <Content />

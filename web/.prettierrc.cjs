@@ -13,5 +13,4 @@ module.exports = {
   jsxBracketSameLine: false,
   arrowParens: 'always',
   plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
-  pluginSearchDirs: false,
 }

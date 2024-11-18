@@ -9,7 +9,7 @@ const { tags, links } = Astro.props
 if (!tags?.length) return null
 ---
 
-<ul role="list" class="flex list-none gap-x-3 text-sm">
+<ul role="list" class="flex list-none gap-x-3 overflow-y-scroll text-ellipsis text-sm">
   {
     tags.map((tag) => {
       return (

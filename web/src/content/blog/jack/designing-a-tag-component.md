@@ -1,6 +1,6 @@
 ---
 title: 'Designing a tag component'
-description: 'Lorem ipsum dolor sit amet'
+description: 'Exploring tags as the foundation for a Kwicherbelliaken design system component.'
 pubDate: '10/21/2024'
 author: 'Jack Morris'
 tags:

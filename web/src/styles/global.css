@@ -1,0 +1,79 @@
+@import '@fontsource/merriweather';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --step--2: clamp(0.6944rem, 0.6774rem + 0.0852vw, 0.72rem);
+  --step--1: clamp(0.8333rem, 0.7889rem + 0.2222vw, 0.9rem);
+  --step-0: clamp(1rem, 0.9167rem + 0.4167vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.0625rem + 0.6875vw, 1.4063rem);
+  --step-2: clamp(1.44rem, 1.2281rem + 1.0594vw, 1.7578rem);
+  --step-3: clamp(1.728rem, 1.4152rem + 1.5642vw, 2.1973rem);
+  --step-4: clamp(2.0736rem, 1.6249rem + 2.2433vw, 2.7466rem);
+  --step-5: clamp(2.4883rem, 1.8584rem + 3.1497vw, 3.4332rem);
+}
+
+@layer base {
+  html {
+    font-family: 'Merriweather', system-ui, serif;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto max-w-[800px] p-6;
+  }
+
+  .flow {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .flow > * {
+    margin-block: 0;
+  }
+
+  .flow > * + * {
+    margin-block-start: var(--space-l, 1em);
+  }
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+  letter-spacing: var(--tracking-s);
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+p {
+  font-size: var(--step-0);
+}
+
+h1 {
+  font-size: var(--step-5);
+}
+
+h2 {
+  font-size: var(--step-4);
+}
+
+h3 {
+  font-size: var(--step-3);
+}
+
+h4 {
+  font-size: var(--step-2);
+}
+
+h5 {
+  font-size: var(--step-1);
+}
+
+h6 {
+  font-size: var(--step-0);
+}

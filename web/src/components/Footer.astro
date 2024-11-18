@@ -2,24 +2,11 @@
 const currentYear = new Date().getFullYear()
 ---
 
-<footer>
-  <div>
+<footer class="mt-12 border-t py-6">
+  <div class="container">
     <p>
       &copy; Copyright
       <span set:text={currentYear} />
     </p>
   </div>
 </footer>
-
-<style>
-  footer {
-    border-top: 1px solid lightgray;
-    height: 160px;
-  }
-
-  .footer-content {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-</style>

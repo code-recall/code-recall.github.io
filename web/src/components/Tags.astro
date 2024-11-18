@@ -1,15 +1,20 @@
 ---
 export type Props = {
   tags: string[] | undefined
+  links?: boolean
 }
 
-const { tags } = Astro.props
+const { tags, links } = Astro.props
 
 if (!tags?.length) return null
 ---
 
 <ul role="list">
-  {tags.map((tag) => <li>{tag}</li>)}
+  {
+    tags.map((tag) => {
+      return <li>{links ? <a href={`/tag/${tag.toLowerCase()}`}>{tag}</a> : tag}</li>
+    })
+  }
 </ul>
 
 <style>

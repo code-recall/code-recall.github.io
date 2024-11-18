@@ -1,0 +1,39 @@
+---
+import PostPreview from '@/components/PostPreview.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import type { GetStaticPaths } from 'astro'
+import { getCollection } from 'astro:content'
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog')
+  const uniqueTags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))]
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = posts.filter((post) => post.data.tags?.includes(tag))
+
+    return {
+      params: { tag: tag.toLowerCase() },
+      props: { posts: filteredPosts },
+    }
+  })
+}) satisfies GetStaticPaths
+
+const { tag } = Astro.params
+const { posts } = Astro.props
+---
+
+<BaseLayout title="Home">
+  <div class="flow">
+    <p>Posts tagged with: {tag}</p>
+
+    <ul role="list">
+      {
+        posts.map((post) => (
+          <li role="listitem">
+            <PostPreview post={post} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

@@ -37,7 +37,7 @@ const pubDate = post.data.pubDate.toLocaleDateString('en-US', {
         <p>{post.data.author}</p>
         <time>{pubDate}</time>
       </div>
-      <Tags tags={post.data.tags} />
+      <Tags links={true} tags={post.data.tags} />
     </div>
 
     <p>{post.data.description}</p>

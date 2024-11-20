@@ -5,7 +5,7 @@ pubDate: '10/21/2024'
 author: 'Jack Morris'
 tags:
   - React
-  - Tailwind
+  - TailwindCSS
   - Frontend
 ---
 

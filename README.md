@@ -41,6 +41,15 @@ Every week, every other week or just whenever suits.
 | Improving Rendering Performance With CSS Selectors | [Read Here](https://nolanlawson.com/2024/09/18/improving-rendering-performance-with-css-content-visibility/)  | [ ]  | [x]    |
 | 3 Steps to Solve Most Design Problems              | [Read Here](https://khalilstemmler.com/letters/3-steps-to-solve-most-design-problems/)                        | [x]  | [x]    |
 
+### Week of December 2, 2024
+
+| Article                                            | Link                                                                                                          | Jack | Adrian |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---- | ------ |
+| Figma's Database Success                | [Read Here](https://www.figma.com/blog/how-figmas-databases-team-lived-to-tell-the-scale/) | [ ]  | [ ]    |
+| How a Third Party App Can Ruin Your Weekend | [Read Here](https://zaidesanton.substack.com/p/how-a-3rd-party-api-can-ruin-you?r=2bjtip)  | [ ]  | [ ]    |
+| The Making of the Figma Pattern Library              | [Read Here](https://www.figma.com/blog/figma-pattern-library/)                        | [ ]  | [ ]    |
+
+
 ## Books
 
 | Title                                                                                                                                   | Description                                                                                                                               | Jack | Adrian |

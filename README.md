@@ -48,6 +48,11 @@ Every week, every other week or just whenever suits.
 | Figma's Database Success                | [Read Here](https://www.figma.com/blog/how-figmas-databases-team-lived-to-tell-the-scale/) | [ ]  | [ ]    |
 | How a Third Party App Can Ruin Your Weekend | [Read Here](https://zaidesanton.substack.com/p/how-a-3rd-party-api-can-ruin-you?r=2bjtip)  | [ ]  | [ ]    |
 | The Making of the Figma Pattern Library              | [Read Here](https://www.figma.com/blog/figma-pattern-library/)                        | [ ]  | [ ]    |
+| How to Improve INP Patterns in React              | [Read Here](https://kurtextrem.de/posts/improve-inp)                        | [ ]  | [ ]    |
+
+
+
+
 
 
 ## Books

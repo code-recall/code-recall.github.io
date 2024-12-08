@@ -50,7 +50,12 @@ Every week, every other week or just whenever suits.
 | The Making of the Figma Pattern Library              | [Read Here](https://www.figma.com/blog/figma-pattern-library/)                        | [ ]  | [ ]    |
 | How to Improve INP Patterns in React              | [Read Here](https://kurtextrem.de/posts/improve-inp)                        | [ ]  | [ ]    |
 
+### Week of December 8, 2024
 
+| Article                                            | Link                                                                                                          | Jack | Adrian |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---- | ------ |
+| Introduction to Local First                | [Read Here](https://www.inkandswitch.com/local-first/) | [ ]  | [ ]    |
+| What if we had Local First                | [Read Here](https://adlrocha.substack.com/p/adlrocha-what-if-we-had-local-first) | [ ]  | [ ]    |
 
 
 
